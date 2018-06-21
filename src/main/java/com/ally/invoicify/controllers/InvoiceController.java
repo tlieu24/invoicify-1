@@ -36,7 +36,7 @@ public class InvoiceController {
 	@Autowired
 	private CompanyRepository companyRepository;
 	
-	@PostMapping
+	@PostMapping("{clientId}")
 	public Invoice createInvoice(@RequestBody InvoiceView invoiceView, @PathVariable long clientId) {
 //		User creator = (User) auth.getPrincipal();
 		List<BillingRecord> records = recordRepository.findByIdIn(invoiceView.getRecordIds());
