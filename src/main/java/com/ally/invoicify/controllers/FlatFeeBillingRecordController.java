@@ -1,7 +1,7 @@
 package com.ally.invoicify.controllers;
 
 // import org.springframework.security.core.Authentication;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +13,7 @@ import com.ally.invoicify.models.FlatFeeBillingRecord;
 import com.ally.invoicify.repositories.BillingRecordRepository;
 import com.ally.invoicify.repositories.CompanyRepository;
 
-@Controller
+@RestController
 @RequestMapping("/api/billing-record/flat-fee")
 public class FlatFeeBillingRecordController {
 

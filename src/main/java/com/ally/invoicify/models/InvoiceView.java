@@ -4,6 +4,10 @@ public class InvoiceView {
 	
 	private String invoiceDescription;
 	private long[] recordIds;
+
+	public InvoiceView(){
+		
+	}
 	
 	public InvoiceView(String invoiceDescription, long[] recordIds) {
 		this.invoiceDescription = invoiceDescription;
