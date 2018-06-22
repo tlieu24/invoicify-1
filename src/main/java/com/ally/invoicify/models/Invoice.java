@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Invoice {
 
@@ -28,6 +30,7 @@ public class Invoice {
 	
 	private String invoiceDescription;
 	
+	@JsonManagedReference(value="secondParent")
 	@OneToMany(mappedBy="invoice", cascade=CascadeType.ALL)
 	private List<InvoiceLineItem> lineItems;
 

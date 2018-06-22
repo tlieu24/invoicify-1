@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public abstract class BillingRecord {
 
@@ -24,16 +26,14 @@ public abstract class BillingRecord {
 	
 	private String description;
 	
+	@JsonManagedReference
 	@OneToOne(mappedBy="billingRecord")
 	private InvoiceLineItem lineItem;
 	
 	@ManyToOne
 	private Company client;
 	
-	public BillingRecord() {
-		long now = Calendar.getInstance().getTimeInMillis();
-		createdOn = new Date(now);
-	}
+	public BillingRecord() {}
 	
 	public BillingRecord(String description, Company client) {
 		this();
