@@ -1,6 +1,7 @@
 package com.ally.invoicify.configuration;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -11,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.ally.invoicify.services.AppUserDetailsService;
 
+@Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -26,10 +28,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http    
             .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/api/session").permitAll()
+                .antMatchers(HttpMethod.PUT, "/api/session").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/user").permitAll()    
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
-                .anyRequest().permitAll()
+                .antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources", "/configuration/security", "/swagger-ui.html", "/webjars/**").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .csrf().disable();
     }
