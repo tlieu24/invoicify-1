@@ -1,13 +1,14 @@
-// package com.ally.invoicify.repositories;
+package com.ally.invoicify.repositories;
 
-// import org.springframework.data.jpa.repository.JpaRepository;
-// import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-// import com.ally.invoicify.models.User;
+import com.ally.invoicify.models.User;
 
-// @Repository
-// public interface UserRepository extends JpaRepository<User, Long> {
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
 
-// 	User findByUsername(String username);
-	
-// }
+	//add special method to find users by username
+	User findByUsername(String username);
+
+}
