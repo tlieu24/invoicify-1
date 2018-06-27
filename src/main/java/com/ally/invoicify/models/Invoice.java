@@ -25,8 +25,8 @@ public class Invoice {
 	
 	private Date createdOn;
 	
-//	@ManyToOne
-//	private User createdBy;
+	@ManyToOne
+	private User createdBy;
 	
 	private String invoiceDescription;
 	
@@ -58,13 +58,13 @@ public class Invoice {
 		this.createdOn = createdOn;
 	}
 
-//	public User getCreatedBy() {
-//		return createdBy;
-//	}
-//
-//	public void setCreatedBy(User createdBy) {
-//		this.createdBy = createdBy;
-//	}
+	public User getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(User createdBy) {
+		this.createdBy = createdBy;
+	}
 
 	public String getInvoiceDescription() {
 		return invoiceDescription;

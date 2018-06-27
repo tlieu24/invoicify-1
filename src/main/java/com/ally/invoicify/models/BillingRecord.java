@@ -19,10 +19,8 @@ public abstract class BillingRecord {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 
-//	@ManyToOne
-//	private User createdBy;
-	
-	private Date createdOn;
+	@ManyToOne
+	private User createdBy;
 	
 	private String description;
 	
@@ -35,10 +33,11 @@ public abstract class BillingRecord {
 	
 	public BillingRecord() {}
 	
-	public BillingRecord(String description, Company client) {
+	public BillingRecord(String description, Company client, User createdBy) {
 		this();
 		this.description = description;
 		this.client = client;
+		this.setCreatedBy(createdBy);
 	}
 	
 	public abstract double getTotal();
@@ -51,20 +50,12 @@ public abstract class BillingRecord {
 		this.id = id;
 	}
 
-//	public User getCreatedBy() {
-//		return createdBy;
-//	}
-//
-//	public void setCreatedBy(User createdBy) {
-//		this.createdBy = createdBy;
-//	}
-
-	public Date getCreatedOn() {
-		return createdOn;
+	public User getCreatedBy() {
+		return createdBy;
 	}
 
-	public void setCreatedOn(Date createdOn) {
-		this.createdOn = createdOn;
+	public void setCreatedBy(User createdBy) {
+		this.createdBy = createdBy;
 	}
 
 	public String getDescription() {
