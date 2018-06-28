@@ -13,7 +13,6 @@ import com.ally.invoicify.repositories.CompanyRepository;
 import com.ally.invoicify.repositories.UserRepository;
 
 @Configuration
-@Profile("development")
 public class SeedData {
 
 	public SeedData(BillingRecordRepository recordRepository, CompanyRepository companyRepository,
